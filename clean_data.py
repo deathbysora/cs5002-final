@@ -10,7 +10,9 @@ wanted = ["FL_DATE",
           "OP_CARRIER_FL_NUM",
           "ORIGIN",
           "DEST",
+          "DEP_TIME",
           "DEP_DELAY",
+          "ARR_TIME",
           "ARR_DELAY"]
 data.drop(
     columns=[column for column in data if not column in wanted], inplace=True)
