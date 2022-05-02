@@ -6,9 +6,6 @@ from matplotlib import dates, pyplot
 from matplotlib.axes import Axes
 from pandas import DataFrame, to_datetime
 
-DESTINATION = "graphs\\"
-ROUND_AMOUNT = 2
-
 
 class DataPlotter():
 
@@ -110,9 +107,18 @@ class DataPlotter():
                                    data=dataframe)
         plot.set_title(self.airport)
         plot.set_ylabel("Delay (in minutes)")
+
+        min = -60
+        max = 420
+        tick = 30
+        plot.set_yticks(range(min, max + tick, tick))
+        plot.set_ylim(min, max + tick)
+
         return plot
 
     def _save_image(self, graph_parameter: str) -> None:
+        DESTINATION = "graphs\\"
+
         paths = [
             DESTINATION,
             DESTINATION + "\\" + self.airport + "\\",
