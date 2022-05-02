@@ -111,6 +111,8 @@ class DataPlotter():
         min = -60
         max = 420
         tick = 30
+        # TODO this is quick visual fix. We need
+        # to filter the data before this step.
         plot.set_yticks(range(min, max + tick, tick))
         plot.set_ylim(min, max + tick)
 
