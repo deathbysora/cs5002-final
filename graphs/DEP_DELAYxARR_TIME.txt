@@ -1,0 +1,58 @@
+data is linear regression model calculated from scipy for each airport
+y = DEP_DELAY
+x = ARR_TIME
+
+SEA
+count: 14074
+slope: nan
+intercept: nan
+r: nan
+p: nan
+std error: nan
+
+
+LAX
+count: 7523
+slope: 0.0011776335826028876
+intercept: -0.561789425358822
+r: 0.052778863344832755
+p: 4.644905693873041e-06
+std error: 0.00025692515277115957
+
+
+HNL
+count: 1690
+slope: nan
+intercept: nan
+r: nan
+p: nan
+std error: nan
+
+
+JFK
+count: 2982
+slope: nan
+intercept: nan
+r: nan
+p: nan
+std error: nan
+
+
+AUS
+count: 914
+slope: 0.0037133548617646647
+intercept: -4.385339914811651
+r: 0.21772294890774957
+p: 2.8667244423750994e-11
+std error: 0.0005512128929706689
+
+
+MIA
+count: 324
+slope: -0.005137330457535423
+intercept: 12.977400443621669
+r: -0.39263829085578766
+p: 2.1858404530844043e-13
+std error: 0.0006705941899373155
+
+
