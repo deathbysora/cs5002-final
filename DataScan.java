@@ -15,14 +15,14 @@ public class DataScan {
    *    departure time (DEP_TIME), DEP_DELAY, arrival time (ARR_TIME), ARR_DELAY
    *    [0, 1, 2, 3, 5, 8, 13]
    */
-  private static final int[] REQUIRED_INDEX = new int[] {0, 1, 2, 3, 4, 6, 7, 11, 12};
+  private static final int[] REQUIRED_INDEX = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 11, 12};
   private static final String[] REQUIRED_CITY = new String[]{"SEA", "JFK", "AUS", "HNL", "MIA", "LAX"};
   
   public static void main(String[] args) throws FileNotFoundException {
     
     // set up file systems
     File allEntries = new File("2019_No_Cities.csv");
-    PrintStream output = new PrintStream(new File("sortedData.csv"));
+    PrintStream output = new PrintStream(new File("sortedData_1.csv"));
     Scanner entryScan = new Scanner(allEntries);
   
   
@@ -36,16 +36,12 @@ public class DataScan {
       
       // check if the plane is diverted
       int cancelledCode = Integer.parseInt(line[13]);
-      boolean isCancelled;
       
       // check if the origin and destination is the required city
       if (checkCities(line[3]) && checkCities(line[4]) && cancelledCode == 0) {
         output.println(discardLines(line));
-        //System.out.println(discardLines(line));
-        
       }
     }
-    
   }
   
   private static String discardLines(String[] entry) {

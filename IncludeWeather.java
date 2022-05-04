@@ -25,6 +25,7 @@ public class IncludeWeather {
   private static Map<String, String[]> miaWeather = new HashMap<>();
   private static Map<String, String[]> hnlWeather = new HashMap<>();
   
+  // The main method to execute the code
   public static void main(String[] args) throws FileNotFoundException {
     
     // scan and build the weather data first
@@ -75,13 +76,11 @@ public class IncludeWeather {
             default:
               System.out.println("No line found");
           }
-    
         }
-        
       }
     }
     
-    // set up file systems
+    // set up file systems for the master dataset
     File allEntries = new File("sortedData.csv");
     PrintStream output = new PrintStream(new File("sortedData_weather.csv"));
     Scanner entryScan = new Scanner(allEntries);
@@ -92,10 +91,7 @@ public class IncludeWeather {
     
     // scan through the rest of the data and add in the weather data
     while (entryScan.hasNext()) {
-      //String[] tokens = entryScan.nextLine().split(",");
-      String test = addWeatherData(entryScan.nextLine());
-      //System.out.println();
-      output.println(test);
+      output.println(addWeatherData(entryScan.nextLine()));
     }
   }
   
@@ -190,7 +186,6 @@ public class IncludeWeather {
     
     String datePrint = Integer.parseInt(dateInput[1]) + "/" + Integer.parseInt(dateInput[2]) + "/" + dateInput[0].substring(2);
     int hourAdd;
-    String hawaiiHour;
     
     if (isHnl) {
       int hnlHour = Integer.parseInt(time[0]) - 10;
@@ -204,16 +199,7 @@ public class IncludeWeather {
     return output;
   }
   
-  private static int[] getDate(String dateEntry) {
-    // incoming format shall be 4/1/19 0:00
-    
-    String[] splitData = dateEntry.split(" ")[0].split("/");
-    
-    return new int[] {Integer.parseInt(splitData[0]),
-            Integer.parseInt(splitData[1]), Integer.parseInt(splitData[2])};
-    
-  }
-  
+  // will round up the departure time to the nearest 5 minute to match the data
   private static String roundUpOrDow(String timeEntry) {
     
     int time =  Integer.parseInt(timeEntry);
